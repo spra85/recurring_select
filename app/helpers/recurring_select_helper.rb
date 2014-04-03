@@ -68,7 +68,7 @@ module RecurringSelectHelper
       return supplied_rule unless RecurringSelect.is_valid_rule?(supplied_rule)
 
       rule = RecurringSelect.dirty_hash_to_rule(supplied_rule)
-      ar = [rule.to_s, rule.to_hash.to_json]
+      ar = [rule.to_s, RecurringSelect.rule_to_option_json(rule)]
 
       if custom
         ar[0] << "*"
