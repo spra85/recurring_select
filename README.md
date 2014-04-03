@@ -49,7 +49,7 @@ f.select_recurring :current_existing_rule, [
 
 :allow_blank let's you pick if there is a "not recurring" value
 ```
-  f.select_recurring :current_existing_rule, :allow_blank => true
+  f.select_recurring :current_existing_rule, nil, :allow_blank => true
 ```
 
 
@@ -129,8 +129,8 @@ love to get jasmine running also, but haven't had time yet.
 Tests can be ran against different versions of Rails like so:
 
 ```
-rake appraisal:install
-rake appraisal
+BUNDLE_GEMFILE=spec/gemfiles/Gemfile.rails-3.2.x bundle install
+BUNDLE_GEMFILE=spec/gemfiles/Gemfile.rails-3.2.x bundle exec rake spec
 ```
 
 Feel free to open issues or send pull requests.
