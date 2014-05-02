@@ -59,7 +59,7 @@ module RecurringSelectHelper
         options_array << custom_label
       end
 
-      options_for_select(options_array, currently_selected_rule.to_json)
+      options_for_select(options_array, RecurringSelect.rule_to_option_json(currently_selected_rule))
     end
 
     private
