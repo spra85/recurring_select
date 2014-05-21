@@ -182,7 +182,8 @@ window.RecurringSelectDialog =
         @current_rule.hash ||= {}
         @current_rule.str = null
         # Convert to unix time and set hash
-        @current_rule.hash.until = $.datepicker.parseDate(untilFormat, date).getTime() / 1000 if date
+        date_until = $.datepicker.parseDate(untilFormat, date).getTime() / 1000 if date
+        @current_rule.hash.until = date_until
         @summaryUpdate()
         false
 
@@ -327,6 +328,7 @@ window.RecurringSelectDialog =
       if $el.is ':checked'
         $untilInput.val('').blur()
         $untilSection.hide()
+        @setRuleUntil(null)
       else
         if @current_rule.hash?.until
           @setDatepickerUntil(@current_rule.hash.until)
